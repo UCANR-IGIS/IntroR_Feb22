@@ -1,5 +1,3 @@
-library(magrittr)
-
 ## Let's create a data frame with some information about countries:
 countries = c("Canada", "Costa Rica", "Mexico", "United States")
 populations = c(10, 25, 20, 30)
@@ -32,6 +30,10 @@ View(iris)
 
 table(iris$Species)
 
+## Import a csv
+
+cars_df <- read.csv("https://raw.githubusercontent.com/UCANR-IGIS/IntroR_Feb22/main/stopping_dist_cars.csv")
+cars_df
 
 
 

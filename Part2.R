@@ -152,6 +152,10 @@ my_nums |> mean()
 ## An older pipe operator is %>% 
 ## To use this one, you need to load the magrittr package first
 
+my_nums %>% sort()
+
+## FUNCTION NOT FOUND?
+
 library(magrittr)
 
 my_nums %>% sort()
