@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content=" February 22 &amp; 25, 2022 Andy Lyons" />
+  <title>Getting Started with R</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+              </style>
+  <script src="lib/header-attrs-2.11/header-attrs.js"></script>
+  <link href="lib/slidy-2/styles/slidy.css" rel="stylesheet" />
+  <script src="lib/slidy-2/scripts/slidy.js"></script>
+  <script src="lib/slidy_shiny-1/slidy_shiny.js"></script>
+  <script src="lib/kePrint-0.0.1/kePrint.js"></script>
+  <link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Getting Started with R</h1>
+  <p class="author">
+<img src='images/r_rstudio_400x120.png' style='width:400px; height:120px; margin-top:1em; margin-bottom:3em;'/><br/>February 22 &amp; 25, 2022<br/>Andy Lyons
+  </p>
+  <p class="date"><img src='images/igis-logo_550x58x256.png'/></p>
+</div>
+<div id="about-me" class="slide section level1">
+<h1>About Me…</h1>
+<style type="text/css">
+div.slide.titlepage h1 {
+  padding-top:5%;
+}
+
+h1 {
+  color:darkgreen;
+}
+h1.title {
+  color:black;
+  font-size:130%;
+}
+h2, p.qtext {
+  color:#444;
+  font-size: 1.2em;
+  font-weight:bold;
+}
+.indented1 {
+  margin-left:1em;
+}
+div.indented2 {
+  margin-left:2em;
+}
+div.li-single li {
+  margin-bottom:0.1em;
+} 
+pre {
+  font-weight:normal;
+  font-size:80%;
+}
+div.shaded-box {
+  margin:1em 2em;
+  border:5px solid #888;
+  background-color:#ddd;
+}
+img.stackme {
+  position:absolute;
+  top:0;
+  left:0;
+}
+div.space_images > p > img {
+  margin-bottom:4em;
+}
+.tbl_compact {
+  border-collapse: collapse;
+}
+.tbl_compact td, .tbl_compact th {
+  padding: 10px 30px;
+  border-bottom:1px solid gray;
+}
+.tbl_compact td {
+  font-size: 100%;
+}
+.tbl_compact tr:nth-child(even) {
+  background-color: #dddddd;
+}
+em {
+  color:indigo;
+  font-weight:600;
+}
+</style>
+<script type="text/javascript">
+w3c_slidy.mouse_click_enabled = false;
+</script>
+<p><img src="images/anr_montage-wide_1120x520.png" /></p>
+</div>
+<div class="slide section level1">
+
+<p><img src="images/igis_team_1170x646.png" /></p>
+</div>
+<div id="about-you" class="slide section level1">
+<h1>About You</h1>
+<div class="space_images">
+
+</div>
+</div>
+<div id="goal" class="slide section level1">
+<h1>Goal</h1>
+<p style="text-align:left; margin-left:2em; font-style:italic; font-size:140%; font-weight:bold; color:darkgreen;">
+Move in the direction of becoming functional with R!!
+</p>
+<p><br />
+</p>
+<h2 id="learning-strategy">Learning Strategy</h2>
+<div class="indented2">
+<p><strong>1) Understand foundational terms and concepts</strong></p>
+<p><strong>2) Hands-on practice</strong></p>
+<p><strong>3) Discover RStudio’s bells and whistles</strong></p>
+<p><strong>4) Learn how to get help</strong></p>
+</div>
+<p><br />
+</p>
+<h2 id="todays-focus">Today’s Focus</h2>
+<p><img src="slides_intro_files/figure-slidy/unnamed-chunk-3-1.png" width="768" /></p>
+</div>
+<div id="other-workshops-coming-up" class="slide section level1">
+<h1>Other Workshops Coming Up</h1>
+<table class="tbl_compact">
+<thead>
+<tr>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Workshop
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Feb 22, 2022<br><span style="font-size:85%; font-style:italic;">10:30a - 12:00p</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+Part 1. Getting Started
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 23, 2022<br><span style="font-size:85%; font-style:italic;">1:00p - 3:00p</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+Drop-in office hours
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Feb 25, 2022<br><span style="font-size:85%; font-style:italic;">10:30a - 12:00p</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+Part II. Working with tables
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+March 1 - April 12, 2022<br><span style="font-size:85%; font-style:italic;">Tuesdays 9:00a - 12:00p</span>
+</td>
+<td style="text-align:left;font-weight: bold;">
+Statistics for ANR Researchers
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="r-and-rstudio" class="slide section level1">
+<h1>R and RStudio</h1>
+<div class="shaded-box">
+<p><strong>Why is R So Popular</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>It’s free!</p></li>
+<li><p>Huge user community (especially academics)</p></li>
+<li><p>Thousands of add-ons (packages) that extend its capabilities</p></li>
+<li><p>Particularly strong in plotting and reporting</p></li>
+<li><p>Once you get over the initial hump, can work very efficiently</p></li>
+<li><p>Makes it easy to get your code “out there”</p></li>
+<li><p>Solid overall programming language</p></li>
+</ol>
+</div>
+</div>
+<div id="exercise-1-rstudio-exploration" class="slide section level1">
+<h1>Exercise 1: RStudio Exploration</h1>
+<p>RStudio is a program you can use to work in R.</p>
+<div class="shaded-box">
+<p><strong>Tips for Learning R</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Take notes</p></li>
+<li><p>Make your own personal cheatsheet</p></li>
+</ol>
+</div>
+</div>
+<div id="quiz-time" class="slide section level1">
+<h1>Quiz Time!</h1>
+<p>Then Break</p>
+</div>
+<div id="review" class="slide section level1">
+<h1>Review</h1>
+<p>Key vocabulary terms are in <em>italic</em>.</p>
+<div class="indented2 li-single">
+<ul>
+<li><p>When you enter an <em>expression</em> at the <em>console</em>, R will <em>evaluate</em> the expression, and <em>print the results</em> at the console.</p></li>
+<li><p>For mathematical expressions, R uses standard order of operations (PEMDAS)</p></li>
+</ul>
+<div class="indented2 li-single">
+<ol style="list-style-type: decimal">
+<li>parentheses</li>
+<li>exponents</li>
+<li>multiplication and division (from left to right)</li>
+<li>addition and subtraction (from left to right)</li>
+</ol>
+</div>
+<ul>
+<li><p>If you enter an incomplete expression, R will prompt you to finish the job by showing a ‘+’ symbol in the console</p></li>
+<li><p>You can <em>save</em> the results of an expression to an <em>object</em> (variable) using an <em>assignment operator</em> (<em><code>=</code></em> or <em><code>&lt;-</code></em>).</p></li>
+<li><p>R objects can be named almost anything (but <em>no spaces</em> or <em>hyphens</em>)</p></li>
+<li><p>R is <em>case sensitive</em> about <strong>everything</strong></p></li>
+<li><p>Once defined, R objects can be used in expressions</p></li>
+<li><p>R objects can be updated</p></li>
+<li><p>R objects are only saved in <em>memory</em>, and will disappear when you close RStudio</p></li>
+<li><p><em>Comparison operators</em> return TRUE or FALSE (aka Logical values)</p></li>
+</ul>
+<div style="margin-left:5em;">
+<em><code>&gt;   &gt;=   &lt;   &lt;=   ==</code></em>
+</div>
+<ul>
+<li>R has a few built-in <em>constants</em>, which are like objects but you don’t have to define them</li>
+</ul>
+</div>
+</div>
+<div id="exercise-2-working-with-scripts-functions-and-vectors" class="slide section level1">
+<h1>Exercise 2: Working with Scripts, Functions and Vectors</h1>
+<p>In the next section, we’ll practice:</p>
+<div class="indented1 li-single">
+<ol style="list-style-type: decimal">
+<li>Saving our code in scripts</li>
+<li>Using functions</li>
+<li>Vectors</li>
+<li>Data types</li>
+</ol>
+</div>
+<!---------------
+# Quiz Time!
+
+Then Break
+------------->
+</div>
+<div id="review-1" class="slide section level1">
+<h1>Review</h1>
+<h2 id="vectors">Vectors</h2>
+<div class="indented2 li-single">
+<ul>
+<li><p><em>vectors</em> are collections of like things</p></li>
+<li><p>Some functions that return vectors</p></li>
+</ul>
+<div class="indented1 li-single">
+<ul>
+<li><code>c()</code><br />
+</li>
+<li><code>seq()</code><br />
+</li>
+<li><code>rnorm()</code><br />
+</li>
+<li><code>sample()</code></li>
+</ul>
+</div>
+<ul>
+<li><p>You can build vectors from scratch using <code>c()</code></p></li>
+<li><p>Operators and functions that operate on each element of a vector and return another vector are said to be <em>vectorized</em></p></li>
+<li><p>Functions that take multiple elements of a vector and spit out a single value are said to be <em>aggregate functions</em></p></li>
+</ul>
+</div>
+<p><br />
+</p>
+<h2 id="functions">Functions</h2>
+<div class="indented2 li-single">
+<ul>
+<li><p>Anything that requires parenthesis is a <em>function</em></p></li>
+<li><p>The things you put in parentheses are called <em>arguments</em></p></li>
+<li><p><strong>All</strong> function arguments are <em>named</em>, but you can drop the names if you enter them in the <em>expected order - without skipping any</em></p></li>
+<li><p>Function arguments can be <em>required</em> or <em>optional</em> (i.e., they have a default value)</p></li>
+<li><p>You can pipe the first argument into a function with the pipe operator: <strong><code>%&gt;%</code></strong> or <strong><code>|&gt;</code></strong></p></li>
+</ul>
+</div>
+<p><br />
+</p>
+<h2 id="getting-help">Getting Help</h2>
+<p>Every function has a <em>help page</em>, which you can get to by typing <em><code>?</code></em> plus the name of the function (without parentheses)</p>
+<pre><code>?seq
+help(&quot;seq&quot;)</code></pre>
+<p><br />
+</p>
+<h2 id="what-function-should-i-use">What function should I use??</h2>
+<table>
+<tbody>
+<tr>
+<td style="text-align:right; font-style:italic; padding:10px; border:none;">
+Finding the right R function, half the battle is.<br><br>- Jedi MasteR Yoda
+</td>
+<td style="padding:5px;">
+<img src="images/yoda_bg-white_200x170.jpg" style="width:200px; height:170px;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cheatsheets!</strong></p>
+<div class="indented2 li-single">
+<ul>
+<li><a href="https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf" target="_blank" rel="noopener">Base R cheatsheet</a><br />
+</li>
+<li><a href="https://www.rforecology.com/uploads/The_essential_R_Cheatsheet_v1_0.pdf" target="_blank" rel="noopener">R for Ecology cheatsheet</a><br />
+</li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank" rel="noopener">RStudio Cheatsheets</a></li>
+</ul>
+</div>
+</div>
+<div id="data-frames" class="slide section level1">
+<h1>Data Frames</h1>
+<p><img src="images/table_500x169x256.png" /></p>
+<p>R has two data classes that organize data in rows and columns:</p>
+<div class="indented2">
+<ul>
+<li><strong>data frames</strong></li>
+<li><strong>matrices</strong><br />
+</li>
+</ul>
+</div>
+<div style="width:250px; float:left;">
+<p><br />
+<br />
+<br />
+<br />
+<strong>rows</strong></p>
+<p><em>aka</em>:<br />
+- record<br />
+- case<br />
+- feature (spatial)</p>
+</div>
+<div style="display:inline-block; border:none;">
+<p><strong>columns</strong></p>
+<p><em>aka:</em> variable, field</p>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div class="colclear">
+
+</div>
+<p><strong>Key concepts</strong></p>
+<div class="indented2 li-single">
+<ul>
+<li>columns of a data frame are vectors<br />
+</li>
+<li>columns have names<br />
+</li>
+<li>you can refer to columns by their name or position</li>
+</ul>
+</div>
+</div>
+<div id="exercise-3-playing-with-data-frames" class="slide section level1">
+<h1>Exercise 3: Playing with Data Frames</h1>
+<div class="indented2 li-single">
+<ul>
+<li>create data frames from scratch<br />
+</li>
+<li>explore R’s built-in data frames<br />
+</li>
+<li>compute summary stats on individual columns<br />
+</li>
+<li>import a csv</li>
+<li>subset rows<br />
+</li>
+</ul>
+</div>
+</div>
+<div id="review-2" class="slide section level1">
+<h1>Review</h1>
+<p>The most common class for storing tabular data in R is the <strong>data frame</strong></p>
+<p>View the first few rows of a data frame with <strong><code>head()</code></strong></p>
+<p>View an entire data frame with <strong><code>View()</code></strong></p>
+<p>Grab an individual column with <strong><code>$</code></strong></p>
+<p>Grab specific rows and columns with <span style="font-weight:bold; font-family:monospace;">my_df[<em>rows-expression</em>, <em>cols-expression</em>]</span></p>
+<div class="indented2">
+where <em>rows-expression</em> and <em>cols-expression</em> are a vector of:
+<div class="indented2">
+integers<br />
+logicals (TRUE / FALSE)<br />
+column names
+</div>
+</div>
+</div>
+<div id="end" class="slide section level1">
+<h1>END!</h1>
+</div>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>
