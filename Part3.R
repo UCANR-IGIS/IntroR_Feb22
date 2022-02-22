@@ -32,8 +32,58 @@ table(iris$Species)
 
 ## Import a csv
 
-cars_df <- read.csv("https://raw.githubusercontent.com/UCANR-IGIS/IntroR_Feb22/main/stopping_dist_cars.csv")
+cars_df <- read.csv("https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/stopping_dist_cars.csv")
+
 cars_df
+
+## Challenge
+
+## What is the mean of the speed column?
+
+## What is the mean reaction distance?
+
+## Compute the frequency table in the surface column
+
+## Pro Tip: you can use summary() on data frames too!
+
+summary(cars_df)
+
+plot(cars_df$speed, cars_df$breaking_dist)
+
+## Later we will see how to filter rows
+
+## Import another csv
+
+animals_df <- read.csv("https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/animals.csv")
+
+head(animals_df)
+
+mean(animals_df$Height)
+
+mean(animals_df$Weight)
+
+## Why is the mean NA?
+
+View(animals_df)
+
+## NA means 'not available' which is usually synonymous with 'missing'
+
+animals_df$Weight %>% is.na()
+
+animals_df$Weight %>% is.na() %>% table()
+
+## What can we do???
+##
+## i) Compute the mean without them
+## ii) Given them a default value
+## iii) Remove those rows from the data frame
+
+## i) Compute the mean without them
+
+## Fortunately, mean() has an optional argument we can use to ignore NAs
+## (not all that common)
+
+mean(animals_df$Weight, na.rm = TRUE)
 
 
 
