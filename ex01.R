@@ -40,10 +40,13 @@ z = z ^ 2
 
 z
 
-## Look what happens with an incomplete expression
+## Look what happens when you enter an incomplete expression:
 
 z = 5 + 
 
+## To get back to the ">", either finish your expression and enter, or
+## press escape multiple times
+  
 ## Comparison operators
 
 x > 5
@@ -64,12 +67,15 @@ x == y
 
 x == y * 2
 
-## Naming objects
+## Naming objects - not limited to just single letters
 
 x1 = 22
 
 ## Camel case / Upper-lower case  
+
 ShoeSize = 14
+
+## Snake case
 
 shoe_size = 12
 
@@ -77,19 +83,29 @@ shoe_size
 
 SHOE_SIZE
 
+## This won't work:
+
 shoe-size = 9.5
+
+## But this is ok
 
 shoe.size = 9.5
 
-## Character values
+## Objects can store character values also (aka string)
 
 shoe_color = "brown"
 
 shoe_color
 
+## What happens if you add a string to a number? 
+
 shoe_color + shoe_size
 
 ## Challenge. Write an expression that returns the area of a circle whose diameter is 10m
+
+## HINT: area = pi times radius squared
+
+## Answer
 
 pi * (10 / 2) ^ 2
 
@@ -109,6 +125,5 @@ class(shoe_size)
 hist(rnorm(1000))
 
 ## END OF PART 1
-## GO BACK TO SLIDES, SHOW ZOOM POLL, THEN TAKE A BREAK
 ##########################################################
 

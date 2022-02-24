@@ -1,0 +1,12 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+magrittr
+dplyr
+knitr
+kableExtra
+ggplot2
