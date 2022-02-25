@@ -148,6 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <link href="lib/slidy-2/styles/slidy.css" rel="stylesheet" />
   <script src="lib/slidy-2/scripts/slidy.js"></script>
   <script src="lib/slidy_shiny-1/slidy_shiny.js"></script>
+  <script src="lib/kePrint-0.0.1/kePrint.js"></script>
+  <link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
 </head>
 <body>
 <div class="slide titlepage">
@@ -189,6 +191,9 @@ h2, p.qtext {
 }
 div.indented2 {
   margin-left:2em;
+}
+div.indented2r {
+  margin-right:2em;
 }
 div.li-single li {
   margin-bottom:0.1em;
@@ -254,13 +259,22 @@ w3c_slidy.mouse_click_enabled = false;
 </div>
 <div id="indexing-vectors" class="slide section level1">
 <h1>Indexing Vectors</h1>
+<p>Indexing refers to pulling out one or more elements using square brackets.</p>
+<div class="indented2">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">51</span>, <span class="at">to =</span> <span class="dv">60</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 54</code></pre>
+</div>
+<p>You can use either <strong>indices</strong> (i.e., integers) or <strong>Logical</strong> (TRUE/FALSE) values in the square brackets</p>
+<p>Indexing with indices can also be use to reorder elements</p>
+<p>These same methods will work to subset rows from data frames!</p>
 </div>
 <div id="pipes" class="slide section level1">
 <h1>Pipes</h1>
 <p><strong>Piping syntax</strong> is an alternative way of writing arguments into functions. It helps when you are using several functions in one expression:</p>
 <p>Consider the expression:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span></code></pre></div>
 </div>
 <p>Piping is an alternative way of writing functions that uses the pipe operator <code>%&gt;%</code> or <code>|&gt;</code> to ‘feed’ the result of one function into the next function:</p>
 <div style="margin-left:4em; font-family:monospace;">
@@ -274,9 +288,16 @@ fun_a(x, ...) %>% fun_b(x, ...) %>% fun_c(x, ...) %>% ...
 </pre>
 <p>So the following are <em>equivalent</em>:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span> <span class="fu">sd</span>() <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span> <span class="fu">sd</span>() <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code></pre></div>
+</div>
+<p><br />
+</p>
+<div class="shaded-box" style="width:70%; margin:0 auto;">
+<p><strong>Pro Tip</strong></p>
+<p>RStudio keyboard shortcut for pipe operator: <code>ctrl + shift + m</code></p>
+<p>You can configure whether that outputs <code>%&gt;%</code> or <code>|&gt;</code> under Global Options &gt;&gt; Code</p>
 </div>
 </div>
 <div id="exercise-3-indexing-vectors" class="slide section level1">
@@ -285,9 +306,18 @@ fun_a(x, ...) %>% fun_b(x, ...) %>% fun_c(x, ...) %>% ...
 <div class="indented2 li-single">
 <ul>
 <li>select elements of a vector with indices and Logical expressions</li>
-<li>more handy functions</li>
+<li>more handy functions<br />
+</li>
+<li>using pipes syntax</li>
 </ul>
 </div>
+<center>
+<p><img src="images/rstudio-cloud_new-project_400x268x256.png" /></p>
+<p><br />
+</p>
+<p><img src="images/rstudio-cloud_new-project-from-github_596x264x256.png" /></p>
+GitHub URL: <a href="https://github.com/ucanr-igis/IntroR_Feb22" class="uri">https://github.com/ucanr-igis/IntroR_Feb22</a>
+</center>
 </div>
 <div id="importing-data" class="slide section level1">
 <h1>Importing Data</h1>
@@ -295,11 +325,11 @@ fun_a(x, ...) %>% fun_b(x, ...) %>% fun_c(x, ...) %>% ...
 <p>Paths can be <strong>complete</strong> or <strong>relative</strong> to the <strong>working directory</strong>.</p>
 <p>Complete path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>Example of a relative path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p><br />
 </p>
@@ -321,18 +351,18 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <div id="working-directory" class="slide section level1">
 <h1>Working Directory</h1>
 <div class="indented2">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>When using relative paths, the first <code>'.'</code> represents the <strong>working directory</strong>.</p>
 <p>Even though you don’t see it, there is <strong>always</strong> working directory. You can view the current working directory with:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 </div>
 <p><br />
 </p>
 <p>Changing the working directory is easy!</p>
 <div class="indented2">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
 </div>
 <p>or use RStudio:</p>
 <center>
@@ -360,6 +390,16 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <center>
 <img src="images/files-import-dataset_560x331x256.png" />
 </center>
+<p><br />
+</p>
+<div class="shaded-box" style="width:80%; margin:0 auto;">
+<p><strong>Pro Tip</strong></p>
+<p><code>read.csv()</code> works with a direct URL:</p>
+<div class="indented2 indented2r">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cars_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/data/stopping_dist_cars.csv&quot;</span>)</span></code></pre></div>
+</div>
+<p>Got data on Google Sheets? Use the <code>googlesheets4</code> package.</p>
+</div>
 </div>
 <div id="best-practices" class="slide section level1">
 <h1>Best Practices</h1>
@@ -422,6 +462,56 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 </ul>
 </div>
 </div>
+<div id="pulling-out-pieces-of-a-data-frame" class="slide section level1">
+<h1>Pulling Out Pieces of a Data Frame</h1>
+<p>To get an individual column, use <code>$</code></p>
+<div class="indented2 indented2r">
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trees)</span></code></pre></div>
+<pre><code>##   Girth Height Volume
+## 1   8.3     70   10.3
+## 2   8.6     65   10.3
+## 3   8.8     63   10.2
+## 4  10.5     72   16.4
+## 5  10.7     81   18.8
+## 6  10.8     83   19.7</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height</span></code></pre></div>
+<pre><code>##  [1] 70 65 63 72 81 83 66 75 80 75 79 76 76 69 75 74 85 86 71 64 78 80 74 72 77
+## [26] 81 82 80 80 80 87</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##      63      72      76      76      80      87</code></pre>
+</div>
+<p><br />
+</p>
+<p>You can <strong>subsample</strong> rows and columns from a data frame together with square bracket notation:</p>
+<div style="margin-left:4em; font-family:monospace; font-weight:bold;">
+my_dataframe[<em>rows-expression</em>, <em>columns-expression</em>]
+</div>
+<p>Where <em>rows-expression</em> is a vector of integers of Logicals (TRUE/FALSE) of the row numbers you want.</p>
+<div class="indented2 indented2r">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trees[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div>
+<pre><code>##    Girth Height Volume
+## 5   10.7     81   18.8
+## 6   10.8     83   19.7
+## 7   11.0     66   15.6
+## 8   11.0     75   18.2
+## 9   11.1     80   22.6
+## 10  11.2     75   19.9</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>trees[ trees<span class="sc">$</span>Height <span class="sc">&gt;</span> <span class="dv">80</span>, ]</span></code></pre></div>
+<pre><code>##    Girth Height Volume
+## 5   10.7     81   18.8
+## 6   10.8     83   19.7
+## 17  12.9     85   33.8
+## 18  13.3     86   27.4
+## 26  17.3     81   55.4
+## 27  17.5     82   55.7
+## 31  20.6     87   77.0</code></pre>
+</div>
+<div class="shaded-box" style="width:50%; margin:0 auto;">
+<p><strong>Pro Tip</strong></p>
+<p>Even if you’re subsetting just rows or just columns, you still need the comma in the square brackets!</p>
+</div>
+</div>
 <div id="data-wrangling-what-is-it" class="slide section level1">
 <h1>Data Wrangling: What is it?</h1>
 <p><em>Whatever is needed to get your data frame accepted by the function(s) you want to use for analysis and visualization.</em></p>
@@ -453,6 +543,62 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 </ul>
 </div>
 </div>
+<div id="dplyr" class="slide section level1">
+<h1><code>dplyr</code></h1>
+<p>An alternative (usually better) way to wrangle data frames</p>
+<p>Part of the <a href="https://www.tidyverse.org" target="_blank">tidyverse</a></p>
+<p>Good way to familiarize yourself with it: explore the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf" target="_blank">cheat sheet</a></p>
+<p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf" target="_blank"><img src="images/data-transformation-600x464.png" style="width:600px;"></a></p>
+</div>
+<div id="useful-dplyr-functions" class="slide section level1">
+<h1>Useful <code>dplyr</code> functions</h1>
+<table class="tbl_compact">
+<tbody>
+<tr>
+<td style="text-align:left;width: 12em; ">
+subset rows
+</td>
+<td style="text-align:left;font-family: monospace;">
+filter(), slice()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+order rows
+</td>
+<td style="text-align:left;font-family: monospace;">
+arrange()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+pick column(s)
+</td>
+<td style="text-align:left;font-family: monospace;">
+select(), pull()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+add new columns
+</td>
+<td style="text-align:left;font-family: monospace;">
+mutate()
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 12em; ">
+join data frames
+</td>
+<td style="text-align:left;font-family: monospace;">
+left_join(), right_join(), inner_join()
+</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+</div>
 <div id="exercise-4-importing-data-and-working-with-data-frames" class="slide section level1">
 <h1>Exercise 4: Importing Data and Working with Data Frames</h1>
 <div class="indented2 li-single">
@@ -464,8 +610,8 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <li>compute summary stats on individual columns<br />
 </li>
 <li>import a csv</li>
-<li>subset rows<br />
-</li>
+<li>subset rows</li>
+<li>identify NA values</li>
 </ul>
 </div>
 </div>
