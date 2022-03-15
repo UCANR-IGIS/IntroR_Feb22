@@ -31,7 +31,7 @@ plot(cars_df$speed, cars_df$breaking_dist)
 
 ## Import another csv
 
-animals_df <- read.csv("https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/animals.csv")
+animals_df <- read.csv("https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/data/animals.csv")
 
 head(animals_df)
 

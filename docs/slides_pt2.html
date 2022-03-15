@@ -150,6 +150,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <script src="lib/slidy_shiny-1/slidy_shiny.js"></script>
   <script src="lib/kePrint-0.0.1/kePrint.js"></script>
   <link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+   href="slidy2022.css" />
 </head>
 <body>
 <div class="slide titlepage">
@@ -162,86 +164,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="review-from-part-i" class="slide section level1">
 <h1>Review from Part I</h1>
-<style type="text/css">
-div.slide.titlepage h1 {
-  padding-top:5%;
-}
-
-h1 {
-  color:darkgreen;
-  line-height:1.4em;
-}
-div.slide.titlepage h1.title {
-  color:#444;
-  font-size:120%;
-}
-
-div.slide.titlepage h1.subtitle {
-  color:black;
-  font-size:150%;
-  padding-top:0em;
-}
-h2, p.qtext {
-  color:#444;
-  font-size: 1.2em;
-  font-weight:bold;
-}
-.indented1 {
-  margin-left:1em;
-}
-div.indented2 {
-  margin-left:2em;
-}
-div.indented2r {
-  margin-right:2em;
-}
-div.li-single li {
-  margin-bottom:0.1em;
-} 
-pre {
-  font-weight:normal;
-  font-size:80%;
-}
-div.shaded-box {
-  margin:1em 2em;
-  border:5px solid #888;
-  background-color:#ddd;
-}
-img.stackme {
-  position:absolute;
-  top:0;
-  left:0;
-}
-div.space_images > p > img {
-  margin-bottom:4em;
-}
-.tbl_compact {
-  border-collapse: collapse;
-}
-.tbl_compact td, .tbl_compact th {
-  padding: 10px 30px;
-  border-bottom:1px solid gray;
-}
-.tbl_compact td {
-  font-size: 100%;
-}
-.tbl_compact tr:nth-child(even) {
-  background-color: #dddddd;
-}
-em {
-  color:indigo;
-  font-weight:600;
-}
-img.stackme {
-  position:absolute;
-  top:0;
-  left:0;
-}
-span.bigred {
-  color:crimson;
-  font-weight:bold;
-}
-</style>
 <script type="text/javascript">
 w3c_slidy.mouse_click_enabled = false;
 </script>
@@ -260,21 +182,65 @@ w3c_slidy.mouse_click_enabled = false;
 <div id="indexing-vectors" class="slide section level1">
 <h1>Indexing Vectors</h1>
 <p>Indexing refers to pulling out one or more elements using square brackets.</p>
+<div class="samplecode">
+<p>my_object[ some_indices ]</p>
+</div>
+<p><br />
+</p>
+<p>Example 1:</p>
 <div class="indented2">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">51</span>, <span class="at">to =</span> <span class="dv">60</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">4</span>]</span></code></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 51 52 53 54 55 56 57 58 59 60</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] 54</code></pre>
 </div>
-<p>You can use either <strong>indices</strong> (i.e., integers) or <strong>Logical</strong> (TRUE/FALSE) values in the square brackets</p>
+<p><br />
+</p>
+<p>Example 2:</p>
+<div class="indented2">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>)]</span></code></pre></div>
+<pre><code>## [1] 54 57 59</code></pre>
+</div>
+<p><br />
+</p>
+<p>In addition to <strong>indices</strong> (i.e., integers), you can put <strong>Logical</strong> (TRUE/FALSE) values in the square brackets</p>
+<div class="indented2">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x[ <span class="fu">c</span>(T, F, T, F, F, F, F, F, T, T) ]</span></code></pre></div>
+<pre><code>## [1] 51 53 59 60</code></pre>
+</div>
+<p><br />
+</p>
+<div class="protip">
 <p>Indexing with indices can also be use to reorder elements</p>
 <p>These same methods will work to subset rows from data frames!</p>
+</div>
+</div>
+<div id="packages" class="slide section level1">
+<h1>Packages</h1>
+<p>Packages are what R calls addons. Most packages provide <em>additional functions</em> and/or <em>datasets</em>.</p>
+<p>Three simple steps to use the functions in a package:</p>
+<ol style="list-style-type: decimal">
+<li><p>Figure out which package you need</p></li>
+<li><p>Install (i.e., download) it (just once)</p></li>
+</ol>
+<p><img src="images/install-package-tab_575x170x256.png" style="display:block; margin:1em auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Load it into memory (must do this <em>every</em> time you start RStudio)</li>
+</ol>
+<div class="indented2">
+<p>Example:</p>
+</div>
+<div class="samplecode">
+<p>library(dplyr)</p>
+</div>
 </div>
 <div id="pipes" class="slide section level1">
 <h1>Pipes</h1>
 <p><strong>Piping syntax</strong> is an alternative way of writing arguments into functions. It helps when you are using several functions in one expression:</p>
 <p>Consider the expression:</p>
-<div class="indented2">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span></code></pre></div>
+<div style="margin-left:4em; font-family:monospace;">
+<p>sum(sd(log(runif(100))))</p>
 </div>
 <p>Piping is an alternative way of writing functions that uses the pipe operator <code>%&gt;%</code> or <code>|&gt;</code> to ‘feed’ the result of one function into the next function:</p>
 <div style="margin-left:4em; font-family:monospace;">
@@ -288,28 +254,35 @@ fun_a(x, ...) %>% fun_b(x, ...) %>% fun_c(x, ...) %>% ...
 </pre>
 <p>So the following are <em>equivalent</em>:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span> <span class="fu">sd</span>() <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sd</span>(<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">100</span>))))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span> <span class="fu">sd</span>() <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code></pre></div>
 </div>
 <p><br />
 </p>
-<div class="shaded-box" style="width:70%; margin:0 auto;">
-<p><strong>Pro Tip</strong></p>
-<p>RStudio keyboard shortcut for pipe operator: <code>ctrl + shift + m</code></p>
-<p>You can configure whether that outputs <code>%&gt;%</code> or <code>|&gt;</code> under Global Options &gt;&gt; Code</p>
+<div class="protip">
+<p>RStudio keyboard shortcut for pipe operator:</p>
+<div class="indented2">
+<p><code>ctrl + shift + m</code></p>
+</div>
+<p>Configure the shortcut under Global Options &gt;&gt; Code</p>
+<div class="indented2">
+<p><code>%&gt;%</code> (default)</p>
+<p><code>|&gt;</code> (‘native’ pipe introduced R4.0)</p>
+</div>
 </div>
 </div>
 <div id="exercise-3-indexing-vectors" class="slide section level1">
 <h1>Exercise 3: Indexing Vectors</h1>
-<p>In the next exercise we’ll look at:</p>
-<div class="indented2 li-single">
-<ul>
-<li>select elements of a vector with indices and Logical expressions</li>
-<li>more handy functions<br />
-</li>
-<li>using pipes syntax</li>
-</ul>
+<div class="shaded-box li-single" style="width:50%;">
+<p><em>Exercise 3 Topics</em></p>
+<ol style="list-style-type: decimal">
+<li>Installing packages</li>
+<li>Loading packages into memory with <code>library()</code></li>
+<li>Using square brack notation to Select elements of a vector</li>
+<li>Logigcal vectors</li>
+<li>Pipes syntax</li>
+</ol>
 </div>
 <center>
 <p><img src="images/rstudio-cloud_new-project_400x268x256.png" /></p>
@@ -325,11 +298,11 @@ GitHub URL: <a href="https://github.com/ucanr-igis/IntroR_Feb22" class="uri">htt
 <p>Paths can be <strong>complete</strong> or <strong>relative</strong> to the <strong>working directory</strong>.</p>
 <p>Complete path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>Example of a relative path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p><br />
 </p>
@@ -351,18 +324,18 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <div id="working-directory" class="slide section level1">
 <h1>Working Directory</h1>
 <div class="indented2">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>When using relative paths, the first <code>'.'</code> represents the <strong>working directory</strong>.</p>
 <p>Even though you don’t see it, there is <strong>always</strong> working directory. You can view the current working directory with:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 </div>
 <p><br />
 </p>
 <p>Changing the working directory is easy!</p>
 <div class="indented2">
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
 </div>
 <p>or use RStudio:</p>
 <center>
@@ -392,11 +365,10 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 </center>
 <p><br />
 </p>
-<div class="shaded-box" style="width:80%; margin:0 auto;">
-<p><strong>Pro Tip</strong></p>
-<p><code>read.csv()</code> works with a direct URL:</p>
+<div class="protip">
+<p><code>read.csv()</code> works with direct URLs also:</p>
 <div class="indented2 indented2r">
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cars_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/data/stopping_dist_cars.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cars_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/data/stopping_dist_cars.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>Got data on Google Sheets? Use the <code>googlesheets4</code> package.</p>
 </div>
@@ -466,7 +438,7 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <h1>Pulling Out Pieces of a Data Frame</h1>
 <p>To get an individual column, use <code>$</code></p>
 <div class="indented2 indented2r">
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trees)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trees)</span></code></pre></div>
 <pre><code>##   Girth Height Volume
 ## 1   8.3     70   10.3
 ## 2   8.6     65   10.3
@@ -474,12 +446,35 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 ## 4  10.5     72   16.4
 ## 5  10.7     81   18.8
 ## 6  10.8     83   19.7</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height</span></code></pre></div>
 <pre><code>##  [1] 70 65 63 72 81 83 66 75 80 75 79 76 76 69 75 74 85 86 71 64 78 80 74 72 77
 ## [26] 81 82 80 80 80 87</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##      63      72      76      76      80      87</code></pre>
+</div>
+<p><br />
+</p>
+<div class="protip">
+<p>You can <em>add a column</em> to a data frame using the <code>$</code> notation. Write an expression that:</p>
+<ol style="list-style-type: decimal">
+<li><p>References a new column with the $ operator <em>as though it existed</em></p></li>
+<li><p><em>Assigns</em> the new column values</p></li>
+</ol>
+<p>R will create the column <em>on the fly</em> and <em>add it</em> to the data frame</p>
+<p>Example:</p>
+<div class="indented2 indented2r">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>select_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(T,T,F), <span class="at">size =</span> <span class="fu">nrow</span>(trees), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##   Girth Height Volume select_me
+## 1   8.3     70   10.3      TRUE
+## 2   8.6     65   10.3      TRUE
+## 3   8.8     63   10.2     FALSE
+## 4  10.5     72   16.4      TRUE
+## 5  10.7     81   18.8      TRUE
+## 6  10.8     83   19.7      TRUE</code></pre>
+</div>
 </div>
 <p><br />
 </p>
@@ -489,26 +484,25 @@ my_dataframe[<em>rows-expression</em>, <em>columns-expression</em>]
 </div>
 <p>Where <em>rows-expression</em> is a vector of integers of Logicals (TRUE/FALSE) of the row numbers you want.</p>
 <div class="indented2 indented2r">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trees[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div>
-<pre><code>##    Girth Height Volume
-## 5   10.7     81   18.8
-## 6   10.8     83   19.7
-## 7   11.0     66   15.6
-## 8   11.0     75   18.2
-## 9   11.1     80   22.6
-## 10  11.2     75   19.9</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>trees[ trees<span class="sc">$</span>Height <span class="sc">&gt;</span> <span class="dv">80</span>, ]</span></code></pre></div>
-<pre><code>##    Girth Height Volume
-## 5   10.7     81   18.8
-## 6   10.8     83   19.7
-## 17  12.9     85   33.8
-## 18  13.3     86   27.4
-## 26  17.3     81   55.4
-## 27  17.5     82   55.7
-## 31  20.6     87   77.0</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>trees[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div>
+<pre><code>##    Girth Height Volume select_me
+## 5   10.7     81   18.8      TRUE
+## 6   10.8     83   19.7      TRUE
+## 7   11.0     66   15.6      TRUE
+## 8   11.0     75   18.2      TRUE
+## 9   11.1     80   22.6     FALSE
+## 10  11.2     75   19.9      TRUE</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>trees[ trees<span class="sc">$</span>Height <span class="sc">&gt;</span> <span class="dv">80</span>, ]</span></code></pre></div>
+<pre><code>##    Girth Height Volume select_me
+## 5   10.7     81   18.8      TRUE
+## 6   10.8     83   19.7      TRUE
+## 17  12.9     85   33.8     FALSE
+## 18  13.3     86   27.4      TRUE
+## 26  17.3     81   55.4      TRUE
+## 27  17.5     82   55.7     FALSE
+## 31  20.6     87   77.0      TRUE</code></pre>
 </div>
-<div class="shaded-box" style="width:50%; margin:0 auto;">
-<p><strong>Pro Tip</strong></p>
+<div class="protip">
 <p>Even if you’re subsetting just rows or just columns, you still need the comma in the square brackets!</p>
 </div>
 </div>
@@ -543,15 +537,17 @@ my_dataframe[<em>rows-expression</em>, <em>columns-expression</em>]
 </ul>
 </div>
 </div>
-<div id="dplyr" class="slide section level1">
-<h1><code>dplyr</code></h1>
-<p>An alternative (usually better) way to wrangle data frames</p>
-<p>Part of the <a href="https://www.tidyverse.org" target="_blank">tidyverse</a></p>
-<p>Good way to familiarize yourself with it: explore the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf" target="_blank">cheat sheet</a></p>
-<p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf" target="_blank"><img src="images/data-transformation-600x464.png" style="width:600px;"></a></p>
-</div>
-<div id="useful-dplyr-functions" class="slide section level1">
-<h1>Useful <code>dplyr</code> functions</h1>
+<div id="data-wrangling-with-dplyr" class="slide section level1">
+<h1>Data Wrangling with <code>dplyr</code></h1>
+<p>An alternative (usually better) way to wrangle data frames than base R.</p>
+<p>Part of the <a href="https://www.tidyverse.org" target="_blank">tidyverse</a>.</p>
+<p>Good way to familiarize yourself with it: explore the <a href="./extras/data-transformation.pdf" target="_blank">cheat sheet</a>.</p>
+<center>
+<a href="./extras/data-transformation.pdf" target="_blank"><img src="images/data-transformation-600x464.png" style="width:600px; border:1px solid gray;"></a>
+</center>
+<p><br />
+</p>
+<h2 id="useful-dplyr-functions">Useful <code>dplyr</code> functions</h2>
 <table class="tbl_compact">
 <tbody>
 <tr>
@@ -601,8 +597,9 @@ left_join(), right_join(), inner_join()
 </div>
 <div id="exercise-4-importing-data-and-working-with-data-frames" class="slide section level1">
 <h1>Exercise 4: Importing Data and Working with Data Frames</h1>
-<div class="indented2 li-single">
-<ul>
+<div class="shaded-box li-single" style="width:50%;">
+<p><em>Exercise 4 Topics</em></p>
+<ol style="list-style-type: decimal">
 <li>create data frames from scratch<br />
 </li>
 <li>explore R’s built-in data frames<br />
@@ -612,7 +609,7 @@ left_join(), right_join(), inner_join()
 <li>import a csv</li>
 <li>subset rows</li>
 <li>identify NA values</li>
-</ul>
+</ol>
 </div>
 </div>
 <div id="review-data-frames" class="slide section level1">
@@ -629,9 +626,6 @@ integers<br />
 logicals (TRUE / FALSE) (or an expression that returns a vector of logicals) column names
 </div>
 </div>
-</div>
-<div id="data-wrangling-with-dplyr" class="slide section level1">
-<h1>Data Wrangling with <code>dplyr</code></h1>
 </div>
 <div id="end" class="slide section level1">
 <h1>END!</h1>
