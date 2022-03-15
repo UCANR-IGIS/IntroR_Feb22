@@ -471,12 +471,12 @@ C:<span class="bigred">\</span>noworm<span class="bigred">\</span>trials<span cl
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##   Girth Height Volume select_me
-## 1   8.3     70   10.3     FALSE
-## 2   8.6     65   10.3      TRUE
+## 1   8.3     70   10.3      TRUE
+## 2   8.6     65   10.3     FALSE
 ## 3   8.8     63   10.2      TRUE
 ## 4  10.5     72   16.4      TRUE
 ## 5  10.7     81   18.8      TRUE
-## 6  10.8     83   19.7      TRUE</code></pre>
+## 6  10.8     83   19.7     FALSE</code></pre>
 </div>
 </div>
 <p><br />
@@ -491,23 +491,55 @@ my_dataframe[<em>rows-expression</em>, <em>columns-expression</em>]
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>trees[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div>
 <pre><code>##    Girth Height Volume select_me
 ## 5   10.7     81   18.8      TRUE
-## 6   10.8     83   19.7      TRUE
+## 6   10.8     83   19.7     FALSE
 ## 7   11.0     66   15.6      TRUE
-## 8   11.0     75   18.2      TRUE
-## 9   11.1     80   22.6      TRUE
-## 10  11.2     75   19.9     FALSE</code></pre>
+## 8   11.0     75   18.2     FALSE
+## 9   11.1     80   22.6     FALSE
+## 10  11.2     75   19.9      TRUE</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>trees[ trees<span class="sc">$</span>Height <span class="sc">&gt;</span> <span class="dv">80</span>, ]</span></code></pre></div>
 <pre><code>##    Girth Height Volume select_me
 ## 5   10.7     81   18.8      TRUE
-## 6   10.8     83   19.7      TRUE
-## 17  12.9     85   33.8     FALSE
-## 18  13.3     86   27.4     FALSE
+## 6   10.8     83   19.7     FALSE
+## 17  12.9     85   33.8      TRUE
+## 18  13.3     86   27.4      TRUE
 ## 26  17.3     81   55.4      TRUE
 ## 27  17.5     82   55.7     FALSE
 ## 31  20.6     87   77.0      TRUE</code></pre>
 </div>
 <div class="protip">
 <p>Even if you’re subsetting just rows or just columns, you still need the comma in the square brackets!</p>
+</div>
+</div>
+<div id="exercise-4-importing-data-and-working-with-data-frames" class="slide section level1">
+<h1>Exercise 4: Importing Data and Working with Data Frames</h1>
+<div class="shaded-box li-single" style="width:50%;">
+<p><em>Exercise 4 Topics</em></p>
+<ol style="list-style-type: decimal">
+<li>create data frames from scratch<br />
+</li>
+<li>explore R’s built-in data frames<br />
+</li>
+<li>compute summary stats on individual columns<br />
+</li>
+<li>import a csv</li>
+<li>subset rows</li>
+<li>identify NA values</li>
+</ol>
+</div>
+</div>
+<div id="review-data-frames" class="slide section level1">
+<h1>Review: Data Frames</h1>
+<p>The most common class for storing tabular data in R is the <strong>data frame</strong></p>
+<p>View the first few rows of a data frame with <strong><code>head()</code></strong></p>
+<p>View an entire data frame with <strong><code>View()</code></strong></p>
+<p>Grab an individual column with <strong><code>$</code></strong></p>
+<p>Grab specific rows and columns with <span style="font-weight:bold; font-family:monospace;">my_df[<em>rows-expression</em>, <em>cols-expression</em>]</span></p>
+<div class="indented2">
+where <em>rows-expression</em> and <em>cols-expression</em> are a vector of:
+<div class="indented2">
+integers<br />
+logicals (TRUE / FALSE) (or an expression that returns a vector of logicals) column names
+</div>
 </div>
 </div>
 <div id="data-wrangling-what-is-it" class="slide section level1">
@@ -598,38 +630,6 @@ left_join(), right_join(), inner_join()
 </table>
 <p><br />
 </p>
-</div>
-<div id="exercise-4-importing-data-and-working-with-data-frames" class="slide section level1">
-<h1>Exercise 4: Importing Data and Working with Data Frames</h1>
-<div class="shaded-box li-single" style="width:50%;">
-<p><em>Exercise 4 Topics</em></p>
-<ol style="list-style-type: decimal">
-<li>create data frames from scratch<br />
-</li>
-<li>explore R’s built-in data frames<br />
-</li>
-<li>compute summary stats on individual columns<br />
-</li>
-<li>import a csv</li>
-<li>subset rows</li>
-<li>identify NA values</li>
-</ol>
-</div>
-</div>
-<div id="review-data-frames" class="slide section level1">
-<h1>Review: Data Frames</h1>
-<p>The most common class for storing tabular data in R is the <strong>data frame</strong></p>
-<p>View the first few rows of a data frame with <strong><code>head()</code></strong></p>
-<p>View an entire data frame with <strong><code>View()</code></strong></p>
-<p>Grab an individual column with <strong><code>$</code></strong></p>
-<p>Grab specific rows and columns with <span style="font-weight:bold; font-family:monospace;">my_df[<em>rows-expression</em>, <em>cols-expression</em>]</span></p>
-<div class="indented2">
-where <em>rows-expression</em> and <em>cols-expression</em> are a vector of:
-<div class="indented2">
-integers<br />
-logicals (TRUE / FALSE) (or an expression that returns a vector of logicals) column names
-</div>
-</div>
 </div>
 <div id="end" class="slide section level1">
 <h1>END!</h1>
